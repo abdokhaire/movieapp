@@ -1,0 +1,19 @@
+<h1>Movie Search</h1>
+
+<%= form_for search_path, method: :get do |f| %>
+  <p>
+    <%= f.label "Search for" %>
+    <%= text_field_tag :q, params[:q] %>
+    <%= submit_tag "search", name: nil %>
+  </p>
+<% end %>
+
+<ul>
+  <% @movies.each do |movie| %>
+    <li>
+      <h3>
+        <%= link_to post.name, controller: "movies", action: "show", slug: movie.slug%>
+      </h3>
+    </li>
+  <% end %>
+</ul>
